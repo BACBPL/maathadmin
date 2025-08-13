@@ -27,4 +27,8 @@ class VendorDetail extends Model
     {
         return $this->hasOne(VendorService::class, 'vendor_id');
     }
+    public function products()
+    {
+        return $this->hasMany(Product::class, 'vendor_id', 'id');
+    }
 }

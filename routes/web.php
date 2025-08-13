@@ -11,6 +11,7 @@ use App\Http\Controllers\Panel\VendorWiseServiceController;
 use App\Http\Controllers\Panel\VendorAreaListController;
 use App\Http\Controllers\Panel\VendorServicePriceController;
 use App\Http\Controllers\Panel\VendorPriceReviewController;
+use App\Http\Controllers\Panel\VendorProductController;
 
 // Redirect “/” to the login page if guest, or straight to dashboard if already authenticated
 Route::get('/', function () {
@@ -77,4 +78,17 @@ Route::name('panel.')->group(function () {
 
     Route::post('/vendor/price/approve/{price}', [VendorPriceReviewController::class, 'approve'])
         ->name('vendor.price.approve');    
+
+    Route::get('/product/add', [VendorProductController::class, 'create'])
+            ->name('vendor.product.add'); // matches your nav link
+
+        Route::post('/product/store', [VendorProductController::class, 'store'])
+            ->name('vendor.product.store');    
+
+    Route::get('/products',                   [VendorProductController::class,'index'])->name('vendor.product.edit');       // nav link points here
+    Route::get('/products/{product}/edit',    [VendorProductController::class,'edit'])->name('vendor.product.edit.form');
+    Route::put('/products/{product}',         [VendorProductController::class,'update'])->name('vendor.product.update');      
+    
+    Route::get('/products/vendors', [VendorProductController::class, 'vendorIndex'])
+            ->name('vendor.products');
 });

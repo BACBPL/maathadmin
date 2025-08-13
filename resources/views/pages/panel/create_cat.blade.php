@@ -44,6 +44,28 @@
           @error('name')<div class="invalid-feedback">{{ $message }}</div>@enderror
         </div>
 
+        {{-- Based --}}
+        <div class="mb-3">
+          <label for="based" class="form-label">{{ __('Based') }}</label>
+          @php $basedValue = old('based', $isEdit ? ($editCategory->based ?? '') : ''); @endphp
+          <select
+            name="based" id="based"
+            class="form-control @error('based') is-invalid @enderror"
+            required
+          >
+            <option value="" disabled {{ $basedValue === '' ? 'selected' : '' }}>
+              {{ __('Select base') }}
+            </option>
+            <option value="product" {{ $basedValue === 'product' ? 'selected' : '' }}>
+              {{ __('Product based') }}
+            </option>
+            <option value="service" {{ $basedValue === 'service' ? 'selected' : '' }}>
+              {{ __('Service based') }}
+            </option>
+          </select>
+          @error('based')<div class="invalid-feedback">{{ $message }}</div>@enderror
+        </div>
+
         {{-- Current Image (edit) --}}
         @if($isEdit && $editCategory->image)
           <div class="mb-3">

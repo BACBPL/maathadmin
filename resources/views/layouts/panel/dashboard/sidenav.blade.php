@@ -39,6 +39,10 @@
                     <div class="nav-link-icon"><i class="fas fa-wallet"></i></div>
                     {{ __('Vendor Wise Service') }}
                 </a>
+                <a class="nav-link" href="{{route('panel.vendor.products')}}">
+                    <div class="nav-link-icon"><i class="fas fa-wallet"></i></div>
+                    {{ __('Vendor Wise Products') }}
+                </a>
                 <a class="nav-link" href="{{route('panel.vendor.price')}}">
                     <div class="nav-link-icon"><i class="fas fa-wallet"></i></div>
                     {{ __('Check Vendor-Service Wise Price') }}
@@ -58,6 +62,14 @@
                 <a class="nav-link" href="{{ route('panel.vendor.services.edit') }}">
                     <div class="nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
                     {{ __('Edit/Add Services') }}
+                </a>
+                <a class="nav-link" href="{{ route('panel.vendor.product.add') }}">
+                    <div class="nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
+                    {{ __('Set Products') }}
+                </a>
+                <a class="nav-link" href="{{ route('panel.vendor.product.edit') }}">
+                    <div class="nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
+                    {{ __('Check/Edit Products') }}
                 </a>
                 <a class="nav-link" href="{{ route('panel.vendor.services.price') }}">
                     <div class="nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
