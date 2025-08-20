@@ -27,4 +27,10 @@ class Product extends Model
     public function primaryImage() {
         return $this->hasOne(ProductImage::class)->where('is_primary', true);
     }
+
+    public static function getProductImage($product_id) { // this method is used in front/orders/order_details.blade.php
+        return \App\Models\ProductImage::where('product_id', $product_id)
+               ->orderByDesc('is_primary')
+               ->value('path') ?: 'no_image.png';
+    }
 }

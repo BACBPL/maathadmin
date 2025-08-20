@@ -152,7 +152,7 @@ class VendorProductController extends Controller
     }
         public function index()
     {
-        $vendorId = auth()->user()->two_factor_recovery_codes;;
+        $vendorId = auth()->user()->two_factor_recovery_codes;
         $products = Product::with(['primaryImage','categories'])
             ->where('vendor_id', $vendorId)
             ->latest()->paginate(15);

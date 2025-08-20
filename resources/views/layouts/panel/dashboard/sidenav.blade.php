@@ -47,6 +47,10 @@
                     <div class="nav-link-icon"><i class="fas fa-wallet"></i></div>
                     {{ __('Check Vendor-Service Wise Price') }}
                 </a>
+                 <a class="nav-link" href="{{route('panel.product.order')}}">
+                    <div class="nav-link-icon"><i class="fas fa-wallet"></i></div>
+                    {{ __('Check Orders') }}
+                </a>
                 <a class="nav-link" href="{{route('panel.vendor.area')}}">
                     <div class="nav-link-icon"><i class="fas fa-wallet"></i></div>
                     {{ __('Vendor Wise Area') }}
@@ -63,6 +67,10 @@
                     <div class="nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
                     {{ __('Edit/Add Services') }}
                 </a>
+                <a class="nav-link" href="{{ route('panel.employee.create') }}">
+                    <div class="nav-link-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    {{ __('Create Employee') }}
+                </a>
                 <a class="nav-link" href="{{ route('panel.vendor.product.add') }}">
                     <div class="nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
                     {{ __('Set Products') }}
@@ -75,10 +83,11 @@
                     <div class="nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
                     {{ __('Set Service Price') }}
                 </a>
-                <a class="nav-link" href="">
-                    <div class="nav-link-icon"><i class="fas fa-concierge-bell"></i></div>
-                    {{ __('Check Bookings') }}
+                <a class="nav-link" href="{{route('panel.product.order')}}">
+                    <div class="nav-link-icon"><i class="fas fa-wallet"></i></div>
+                    {{ __('Check Orders') }}
                 </a>
+                
             @endif
         </div>
     </div>

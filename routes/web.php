@@ -12,6 +12,8 @@ use App\Http\Controllers\Panel\VendorAreaListController;
 use App\Http\Controllers\Panel\VendorServicePriceController;
 use App\Http\Controllers\Panel\VendorPriceReviewController;
 use App\Http\Controllers\Panel\VendorProductController;
+use App\Http\Controllers\Panel\EmployeeController;
+use App\Http\Controllers\Panel\OrderController;
 
 // Redirect “/” to the login page if guest, or straight to dashboard if already authenticated
 Route::get('/', function () {
@@ -91,4 +93,14 @@ Route::name('panel.')->group(function () {
     
     Route::get('/products/vendors', [VendorProductController::class, 'vendorIndex'])
             ->name('vendor.products');
+
+    Route::get('employee/create', [EmployeeController::class, 'createBasic'])->name('employee.create');
+    Route::post('employee/create', [EmployeeController::class, 'storeBasic'])->name('employee.store');
+    Route::get('employee/{employee}/docs', [EmployeeController::class, 'createDocs'])->name('employee.docs.create');
+    Route::post('vendor/{vendor}/docs', [EmployeeController::class, 'storeDocs'])->name('vendor.docs.store');   
+    
+    Route::get('check/orders', [OrderController::class, 'orders'])->name('product.order');
+    Route::get('orders/{id}', [OrderController::class, 'orderDetails'])->name('orders.show');
+    
+    
 });
